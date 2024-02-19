@@ -30,7 +30,7 @@ function scrollHandlerHeader() {
 }
 
 function scrollHandlerSection() {
-  ['dev-info', 'about', 'resume', 'portfolio', 'contact'].forEach(async (section, _i, a) => {
+  ['dev-info', 'about', 'resume', 'portfolio', 'contact'].forEach((section, _i, a) => {
     const target = document.querySelector<HTMLElement>(`section#${section}`)!;
     const targetBounds = target.getBoundingClientRect();
     if (targetBounds.top < 32 && targetBounds.bottom >= 0) {
@@ -61,7 +61,7 @@ function scrollHandlerSection() {
     }
   });
 
-  ['formation', 'experience', 'languages', 'skills'].forEach(async (section, _i, a) => {
+  ['formation', 'experience', 'languages', 'skills'].forEach((section, _i, a) => {
     const target = document.querySelector(`section#${section}`)!;
     const targetBounds = target.getBoundingClientRect();
     if (targetBounds.top < 32 && targetBounds.bottom >= 0) {

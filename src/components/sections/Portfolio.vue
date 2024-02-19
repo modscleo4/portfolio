@@ -16,9 +16,10 @@ const { portfolio, tech_filter } = defineProps<{
 let portfolioLeftMargin: number = 0;
 
 function scrollHandlerPortfolio() {
-  const portfolioSectionWrapper = document.querySelector<HTMLDivElement>(`section#portfolio .section-wrapper`)!;
-  const ul = document.querySelector<HTMLUListElement>(`section#portfolio .portfolio-items ul`)!;
   const target = document.querySelector<HTMLElement>(`section#portfolio`)!;
+  const portfolioSectionWrapper = document.querySelector<HTMLDivElement>(`section#portfolio .section-wrapper`)!;
+  const itemsContainer = document.querySelector<HTMLUListElement>(`section#portfolio .portfolio-items ul`)!;
+
   const targetBounds = target.getBoundingClientRect();
   if (targetBounds.top < 32 && targetBounds.bottom >= 0) {
     if (window.matchMedia('(max-width: 800px)').matches) {
@@ -40,27 +41,36 @@ function scrollHandlerPortfolio() {
       portfolioSectionWrapper.classList.remove('bottom');
     }
 
-    ul.style.setProperty('--top', `${top + portfolioLeftMargin}px`);
+    itemsContainer.style.setProperty('--top', `${top + portfolioLeftMargin}px`);
   } else {
     portfolioSectionWrapper.classList.remove('visible');
     if (targetBounds.top > 0) { // scrolled up
-      ul.style.setProperty('--top', `0px`);
+      itemsContainer.style.setProperty('--top', `0px`);
     }
   }
 }
 
 function resizePortfolio() {
-  const sectionPortfolio = document.querySelector<HTMLElement>(`section#portfolio`)!;
-  const itemsContainer = document.querySelector<HTMLUListElement>(`#portfolio .portfolio-items ul`)!;
+  const target = document.querySelector<HTMLElement>(`section#portfolio`)!;
+  const portfolioSectionWrapper = document.querySelector<HTMLDivElement>(`section#portfolio .section-wrapper`)!;
+  const itemsContainer = document.querySelector<HTMLUListElement>(`section#portfolio .portfolio-items ul`)!;
 
   if (window.matchMedia('(max-width: 800px)').matches) {
     // mobile
-    sectionPortfolio.style.height = '';
+    target.style.height = '';
     return;
   }
 
-  sectionPortfolio.style.height = itemsContainer.getBoundingClientRect().width + 'px';
+  itemsContainer.style.setProperty('--top', `0px`);
+  target.style.height = itemsContainer.getBoundingClientRect().width + 'px';
   portfolioLeftMargin = itemsContainer.getBoundingClientRect().x;
+
+  scrollHandlerPortfolio();
+
+  if (portfolioSectionWrapper.classList.contains('bottom')) {
+    // portfolio section is no longer visible, update the top property manually
+    itemsContainer.style.setProperty('--top', `${-itemsContainer.getBoundingClientRect().width + window.innerHeight - portfolioLeftMargin}px`);
+  }
 }
 
 onBeforeMount(() => {
