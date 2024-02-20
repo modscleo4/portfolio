@@ -21,7 +21,7 @@ const emit = defineEmits(['toggleSidebar']);
 </script>
 
 <template>
-  <nav id="sidebar-nav" class="right center" :class="{ 'open': sidebarOpened }">
+  <nav class="right center" :class="{ 'open': sidebarOpened }">
     <ul @click="emit('toggleSidebar')">
       <li style="display: none;"><a href="#dev-info">Dev</a></li>
       <li><a href="#about"><IconInfoCircle :size="24" stroke-width="1.25" /> Sobre</a></li>

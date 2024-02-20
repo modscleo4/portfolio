@@ -40,9 +40,9 @@ a:hover {
 }
 
 a {
-  display: grid;
-  grid-template-rows: 40% auto;
-  grid-row-gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 a figure {

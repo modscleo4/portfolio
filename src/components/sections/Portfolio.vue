@@ -18,7 +18,9 @@ let portfolioLeftMargin: number = 0;
 function scrollHandlerPortfolio() {
   const target = document.querySelector<HTMLElement>(`section#portfolio`)!;
   const portfolioSectionWrapper = document.querySelector<HTMLDivElement>(`section#portfolio .section-wrapper`)!;
-  const itemsContainer = document.querySelector<HTMLUListElement>(`section#portfolio .portfolio-items ul`)!;
+  const heading = document.querySelector<HTMLElement>(`section#portfolio .section-wrapper > h1`)!;
+  const itemsContainer = document.querySelector<HTMLUListElement>(`section#portfolio .portfolio-items`)!;
+  const ul = document.querySelector<HTMLUListElement>(`section#portfolio .portfolio-items ul`)!;
 
   const targetBounds = target.getBoundingClientRect();
   if (targetBounds.top < 32 && targetBounds.bottom >= 0) {
@@ -35,17 +37,22 @@ function scrollHandlerPortfolio() {
     }
 
     if (bottom < window.innerHeight) {
+      if (portfolioSectionWrapper.classList.contains('bottom')) {
+        return;
+      }
+
       portfolioSectionWrapper.classList.add('bottom');
+      itemsContainer.style.setProperty('--bottom', `${(portfolioSectionWrapper.getBoundingClientRect().height + portfolioSectionWrapper.getBoundingClientRect().top) - itemsContainer.getBoundingClientRect().height - heading.getBoundingClientRect().height}px`);
       return;
     } else {
       portfolioSectionWrapper.classList.remove('bottom');
     }
 
-    itemsContainer.style.setProperty('--top', `${top + portfolioLeftMargin}px`);
+    ul.style.setProperty('--top', `${top + portfolioLeftMargin}px`);
   } else {
     portfolioSectionWrapper.classList.remove('visible');
     if (targetBounds.top > 0) { // scrolled up
-      itemsContainer.style.setProperty('--top', `0px`);
+      ul.style.setProperty('--top', `0px`);
     }
   }
 }
@@ -53,7 +60,9 @@ function scrollHandlerPortfolio() {
 function resizePortfolio() {
   const target = document.querySelector<HTMLElement>(`section#portfolio`)!;
   const portfolioSectionWrapper = document.querySelector<HTMLDivElement>(`section#portfolio .section-wrapper`)!;
-  const itemsContainer = document.querySelector<HTMLUListElement>(`section#portfolio .portfolio-items ul`)!;
+  const heading = document.querySelector<HTMLElement>(`section#portfolio .section-wrapper > h1`)!;
+  const itemsContainer = document.querySelector<HTMLUListElement>(`section#portfolio .portfolio-items`)!;
+  const ul = document.querySelector<HTMLUListElement>(`section#portfolio .portfolio-items ul`)!;
 
   if (window.matchMedia('(max-width: 800px)').matches) {
     // mobile
@@ -61,15 +70,16 @@ function resizePortfolio() {
     return;
   }
 
-  itemsContainer.style.setProperty('--top', `0px`);
-  target.style.height = itemsContainer.getBoundingClientRect().width + 'px';
-  portfolioLeftMargin = itemsContainer.getBoundingClientRect().x;
+  ul.style.setProperty('--top', `0px`);
+  target.style.height = ul.getBoundingClientRect().width + 'px';
+  portfolioLeftMargin = ul.getBoundingClientRect().x;
 
   scrollHandlerPortfolio();
 
   if (portfolioSectionWrapper.classList.contains('bottom')) {
     // portfolio section is no longer visible, update the top property manually
-    itemsContainer.style.setProperty('--top', `${-itemsContainer.getBoundingClientRect().width + window.innerHeight - portfolioLeftMargin}px`);
+    ul.style.setProperty('--top', `${-ul.getBoundingClientRect().width + window.innerHeight - portfolioLeftMargin}px`);
+    itemsContainer.style.setProperty('--bottom', `${(portfolioSectionWrapper.getBoundingClientRect().height + portfolioSectionWrapper.getBoundingClientRect().top) - itemsContainer.getBoundingClientRect().height - heading.getBoundingClientRect().height}px`);
   }
 }
 
@@ -140,6 +150,7 @@ onUnmounted(() => {
 }
 
 #portfolio .portfolio-items {
+  --bottom: 0px;
   overflow: hidden;
   margin-left: calc(32px + (100vw - var(--app-max-width)) / 2);
 }
@@ -154,7 +165,7 @@ onUnmounted(() => {
 #portfolio .section-wrapper.bottom .portfolio-items {
   position: absolute;
   top: unset;
-  bottom: 125px;
+  bottom: var(--bottom);
   left: 0;
 }
 
@@ -178,7 +189,6 @@ onUnmounted(() => {
 #portfolio .portfolio-items ul li {
   transition: all 200ms;
   background: var(--odd);
-  height: 35rem;
 }
 
 #portfolio .portfolio-items ul li:hover {
