@@ -23,6 +23,7 @@ span {
 
 span.highlight {
   background-color: var(--btn-background-color);
+  color: var(--text-color-alt);
 }
 
 span:hover {

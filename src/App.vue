@@ -190,6 +190,14 @@ const dev: Dev = {
     },
 
     {
+      url: 'https://modscleo4.dev.br/qr',
+      image_url: 'res/project-15.png',
+      name: 'QR Code Generator',
+      description: 'Gerador de QR Code passo-a-passo feito em Vue.js',
+      techs: ['HTML', 'CSS', 'JS', 'Vue.js'],
+    },
+
+    {
       url: 'https://modscleo4.dev.br/passwordgen',
       image_url: 'res/project-9.png',
       name: 'Password Generator',
@@ -301,6 +309,7 @@ body {
   /* overflow-x: hidden; */
   color: var(--text-color);
   line-height: 1.5;
+  scroll-padding-top: 64px;
 }
 
 svg.tabler-icon {

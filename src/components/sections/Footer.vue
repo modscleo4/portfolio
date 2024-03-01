@@ -88,6 +88,10 @@ footer {
   background: rgba(255, 255, 255, 0);
 }
 
+footer #contact {
+  padding: 64px 0 32px;
+}
+
 article {
   display: grid;
   grid-template-columns: 1fr 1.5fr 1fr;

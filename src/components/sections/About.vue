@@ -31,11 +31,12 @@ p {
 }
 
 .download-btn {
-  padding: 12px 20px;
+  padding: 8px 20px;
   background: var(--btn-background-color);
   transition: all 100ms ease;
   border-radius: 50px;
   color: var(--btn-text-color);
+  display: inline-block;
 }
 
 .download-btn:hover {

@@ -66,8 +66,8 @@ const { dev } = defineProps<{
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;;
-  padding-bottom: 32px;
+  gap: 16px;
+  padding: 64px;
 }
 
 figure {

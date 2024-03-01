@@ -18,12 +18,11 @@ let portfolioLeftMargin: number = 0;
 function scrollHandlerPortfolio() {
   const target = document.querySelector<HTMLElement>(`section#portfolio`)!;
   const portfolioSectionWrapper = document.querySelector<HTMLDivElement>(`section#portfolio .section-wrapper`)!;
-  const heading = document.querySelector<HTMLElement>(`section#portfolio .section-wrapper > h1`)!;
-  const itemsContainer = document.querySelector<HTMLUListElement>(`section#portfolio .portfolio-items`)!;
   const ul = document.querySelector<HTMLUListElement>(`section#portfolio .portfolio-items ul`)!;
+  const ulBounds = ul.getBoundingClientRect();
 
   const targetBounds = target.getBoundingClientRect();
-  if (targetBounds.top < 32 && targetBounds.bottom >= 0) {
+  if (Math.floor(targetBounds.top) <= 64 && targetBounds.bottom >= 0) {
     if (window.matchMedia('(max-width: 800px)').matches) {
       // mobile
       return;
@@ -37,18 +36,14 @@ function scrollHandlerPortfolio() {
     }
 
     if (bottom < window.innerHeight) {
-      if (portfolioSectionWrapper.classList.contains('bottom')) {
-        return;
-      }
-
       portfolioSectionWrapper.classList.add('bottom');
-      itemsContainer.style.setProperty('--bottom', `${(portfolioSectionWrapper.getBoundingClientRect().height + portfolioSectionWrapper.getBoundingClientRect().top) - itemsContainer.getBoundingClientRect().height - heading.getBoundingClientRect().height}px`);
+      ul.style.setProperty('--top', `${-ulBounds.width + window.innerHeight + portfolioLeftMargin - 64}px`);
       return;
     } else {
       portfolioSectionWrapper.classList.remove('bottom');
     }
 
-    ul.style.setProperty('--top', `${top + portfolioLeftMargin}px`);
+    ul.style.setProperty('--top', `${top + portfolioLeftMargin - 64}px`);
   } else {
     portfolioSectionWrapper.classList.remove('visible');
     if (targetBounds.top > 0) { // scrolled up
@@ -63,6 +58,7 @@ function resizePortfolio() {
   const heading = document.querySelector<HTMLElement>(`section#portfolio .section-wrapper > h1`)!;
   const itemsContainer = document.querySelector<HTMLUListElement>(`section#portfolio .portfolio-items`)!;
   const ul = document.querySelector<HTMLUListElement>(`section#portfolio .portfolio-items ul`)!;
+  const header = document.querySelector<HTMLElement>(`header`)!;
 
   if (window.matchMedia('(max-width: 800px)').matches) {
     // mobile
@@ -71,15 +67,17 @@ function resizePortfolio() {
   }
 
   ul.style.setProperty('--top', `0px`);
-  target.style.height = ul.getBoundingClientRect().width + 'px';
-  portfolioLeftMargin = ul.getBoundingClientRect().x;
+
+  const ulBounds = ul.getBoundingClientRect();
+  target.style.height = ulBounds.width + 'px';
+  portfolioLeftMargin = ulBounds.x;
+  itemsContainer.style.setProperty('--bottom', `${Math.max(0, (window.innerHeight - header.getBoundingClientRect().height) - ulBounds.height - heading.getBoundingClientRect().height)}px`);
 
   scrollHandlerPortfolio();
 
   if (portfolioSectionWrapper.classList.contains('bottom')) {
     // portfolio section is no longer visible, update the top property manually
-    ul.style.setProperty('--top', `${-ul.getBoundingClientRect().width + window.innerHeight - portfolioLeftMargin}px`);
-    itemsContainer.style.setProperty('--bottom', `${(portfolioSectionWrapper.getBoundingClientRect().height + portfolioSectionWrapper.getBoundingClientRect().top) - itemsContainer.getBoundingClientRect().height - heading.getBoundingClientRect().height}px`);
+    ul.style.setProperty('--top', `${-ulBounds.width + window.innerHeight + portfolioLeftMargin - 64}px`);
   }
 }
 
@@ -121,7 +119,7 @@ onUnmounted(() => {
 <style scoped>
 
 #portfolio {
-  --top: 190px;
+  --top: 160px;
   overflow-x: hidden;
 }
 
@@ -140,13 +138,16 @@ onUnmounted(() => {
 }
 
 #portfolio .section-wrapper.visible > h1 {
-  top: 100px;
+  top: 72px;
   left: 0;
   position: fixed;
 }
 
 #portfolio .section-wrapper.bottom > h1 {
-  position: unset;
+  position: absolute;
+  top: unset;
+  bottom: var(--bottom);
+  left: 0;
 }
 
 #portfolio .portfolio-items {
@@ -177,6 +178,7 @@ onUnmounted(() => {
   grid-auto-columns: 25vw;
   list-style: none;
   padding: 0;
+  padding-bottom: 4px;
   margin: 0;
   transform: translate3d(var(--top), 0, 0);
   position: absolute;

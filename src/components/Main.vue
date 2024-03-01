@@ -27,14 +27,16 @@ function portfolio() {
 
 <template>
   <main>
-    <Navbar :dev="dev" :sidebarOpened="sidebarOpened" @toggleSidebar="sidebarOpened = !sidebarOpened" />
+    <Navbar :sidebarOpened="sidebarOpened" @toggleSidebar="sidebarOpened = !sidebarOpened" />
     <div v-if="sidebarOpened" class="sidebar-backdrop" @click="sidebarOpened = !sidebarOpened"></div>
 
-    <Header :dev="dev" :sidebarOpened="sidebarOpened" @toggleSidebar="sidebarOpened = !sidebarOpened" />
+    <Header :sidebarOpened="sidebarOpened" @toggleSidebar="sidebarOpened = !sidebarOpened" />
     <DevInfo :dev="dev" />
-    <About :dev="dev" />
-    <Resume :dev="dev" />
-    <Portfolio :portfolio="portfolio()" :tech_filter="tech_filter" />
+    <article>
+      <About :dev="dev" />
+      <Resume :dev="dev" />
+      <Portfolio :portfolio="portfolio()" :tech_filter="tech_filter" />
+    </article>
     <Footer :dev="dev" />
   </main>
 </template>
@@ -46,6 +48,14 @@ main {
   margin: 0 auto;
   position: relative;
   z-index: 1;
+}
+
+article {
+  background: var(--background-color);
+  padding: 64px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
 }
 
 .sidebar-backdrop {
@@ -60,24 +70,34 @@ main {
 
 :deep(section) {
   width: 100%;
-  border-top: 1px solid rgba(0, 0, 0, 0);
-  padding: 64px 0 32px;
-  background: var(--background-color);
+  /* border-top: 1px solid rgba(0, 0, 0, 0); */
+  /* padding: 32px 0 16px; */
+  /* background: var(--background-color); */
   display: flex;
   justify-content: center;
   position: relative;
 }
 
-:deep(section section) {
-  padding: unset;
-  background: unset;
-  display: unset;
-}
-
 :deep(section h1) {
   margin: 0;
-  margin-bottom: 36px;
+  margin-bottom: 32px;
   font-size: 2.5em;
+}
+
+:deep(section section) {
+  /* padding: 32px 0 16px; */
+  background: unset;
+  /* display: unset; */
+}
+
+:deep(section section h2) {
+  margin: 0;
+  margin-bottom: 16px;
+  font-size: 1.5em;
+}
+
+:deep(section section section) {
+  padding: unset;
 }
 
 :deep(.section-wrapper) {
@@ -86,7 +106,7 @@ main {
   padding: 0 32px;
 }
 
-:deep(.alt-bg) {
+/* :deep(.alt-bg) {
   color: var(--text-color-alt);
 }
 
@@ -100,5 +120,5 @@ main {
 
 :deep(.no-bg) {
   background: none;
-}
+} */
 </style>

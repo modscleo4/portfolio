@@ -33,7 +33,7 @@ function scrollHandlerSection() {
   ['dev-info', 'about', 'resume', 'portfolio', 'contact'].forEach((section, _i, a) => {
     const target = document.querySelector<HTMLElement>(`section#${section}`)!;
     const targetBounds = target.getBoundingClientRect();
-    if (targetBounds.top < 32 && targetBounds.bottom >= 0) {
+    if (Math.floor(targetBounds.top) <= 64 && targetBounds.bottom >= 0) {
       a.forEach(s => {
         document.querySelector(`header a[href="#${s}"]`)?.classList.remove('active');
         document.querySelector(`nav a[href="#${s}"]`)?.classList.remove('active');
@@ -64,7 +64,7 @@ function scrollHandlerSection() {
   ['formation', 'experience', 'languages', 'skills'].forEach((section, _i, a) => {
     const target = document.querySelector(`section#${section}`)!;
     const targetBounds = target.getBoundingClientRect();
-    if (targetBounds.top < 32 && targetBounds.bottom >= 0) {
+    if (Math.floor(targetBounds.top) <= 64 && targetBounds.bottom >= 0) {
       a.forEach(s => {
         document.querySelector(`header a[href="#${s}"]`)?.classList.remove('active');
         document.querySelector(`nav a[href="#${s}"]`)?.classList.remove('active');

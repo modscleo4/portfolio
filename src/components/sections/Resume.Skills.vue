@@ -41,6 +41,7 @@ article section {
   grid-template-rows: auto;
   grid-auto-flow: row;
   grid-row-gap: 4px;
+  justify-content: left;
 }
 
 article section h1 {
