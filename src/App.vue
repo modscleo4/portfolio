@@ -150,19 +150,27 @@ const dev: Dev = {
     },
 
     {
-      url: 'https://github.com/modscleo4/jsdb',
-      image_url: 'res/project-1.png',
-      name: 'JSDB',
-      description: 'Um banco de dados simples feito em JS, armazenando os dados em arquivos JSON.',
-      techs: ['JS', 'Node.js', 'SQL'],
-    },
-
-    {
       url: 'https://chess.modscleo4.dev.br',
       image_url: 'res/project-8.png',
       name: 'Chess.js',
       description: 'Chess.js (com online)',
       techs: ['HTML', 'CSS', 'JS', 'Local Storage', 'Vue.js'],
+    },
+
+    {
+      url: 'https://github.com/modscleo4/nbtpy',
+      image_url: 'res/project-16.png',
+      name: 'NBT.py',
+      description: 'Editor gráfico de NBT (Named Binary Tag) feito em Python',
+      techs: ['Python', 'NBT', 'Parser', 'ImGui'],
+    },
+
+    {
+      url: 'https://github.com/modscleo4/jsdb',
+      image_url: 'res/project-1.png',
+      name: 'JSDB',
+      description: 'Um banco de dados simples feito em JS, armazenando os dados em arquivos JSON.',
+      techs: ['JS', 'Node.js', 'SQL'],
     },
 
     {

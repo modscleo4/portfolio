@@ -16,10 +16,10 @@ const { portfolio, tech_filter } = defineProps<{
 let portfolioLeftMargin: number = 0;
 
 function scrollHandlerPortfolio() {
-  const target = document.querySelector<HTMLElement>(`section#portfolio`)!;
+  const target                  = document.querySelector<HTMLElement>(`section#portfolio`)!;
   const portfolioSectionWrapper = document.querySelector<HTMLDivElement>(`section#portfolio .section-wrapper`)!;
-  const ul = document.querySelector<HTMLUListElement>(`section#portfolio .portfolio-items ul`)!;
-  const ulBounds = ul.getBoundingClientRect();
+  const ul                      = document.querySelector<HTMLUListElement>(`section#portfolio .portfolio-items ul`)!;
+  const ulBounds                = ul.getBoundingClientRect();
 
   const targetBounds = target.getBoundingClientRect();
   if (Math.floor(targetBounds.top) <= 64 && targetBounds.bottom >= 0) {
@@ -53,12 +53,12 @@ function scrollHandlerPortfolio() {
 }
 
 function resizePortfolio() {
-  const target = document.querySelector<HTMLElement>(`section#portfolio`)!;
+  const target                  = document.querySelector<HTMLElement>(`section#portfolio`)!;
   const portfolioSectionWrapper = document.querySelector<HTMLDivElement>(`section#portfolio .section-wrapper`)!;
-  const heading = document.querySelector<HTMLElement>(`section#portfolio .section-wrapper > h1`)!;
-  const itemsContainer = document.querySelector<HTMLUListElement>(`section#portfolio .portfolio-items`)!;
-  const ul = document.querySelector<HTMLUListElement>(`section#portfolio .portfolio-items ul`)!;
-  const header = document.querySelector<HTMLElement>(`header`)!;
+  const heading                 = document.querySelector<HTMLElement>(`section#portfolio .section-wrapper > h1`)!;
+  const itemsContainer          = document.querySelector<HTMLUListElement>(`section#portfolio .portfolio-items`)!;
+  const ul                      = document.querySelector<HTMLUListElement>(`section#portfolio .portfolio-items ul`)!;
+  const header                  = document.querySelector<HTMLElement>(`header`)!;
 
   if (window.matchMedia('(max-width: 800px)').matches) {
     // mobile

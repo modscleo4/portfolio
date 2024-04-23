@@ -3,6 +3,7 @@ import { ref } from 'vue';
 
 import { Dev } from '../Dev.js';
 
+import Github from './Github.vue';
 import Navbar from './Navbar.vue';
 import Header from './sections/Header.vue';
 import DevInfo from './sections/DevInfo.vue';
@@ -29,6 +30,7 @@ function portfolio() {
   <main>
     <Navbar :sidebarOpened="sidebarOpened" @toggleSidebar="sidebarOpened = !sidebarOpened" />
     <div v-if="sidebarOpened" class="sidebar-backdrop" @click="sidebarOpened = !sidebarOpened"></div>
+    <Github id="github-fork-me" />
 
     <Header :sidebarOpened="sidebarOpened" @toggleSidebar="sidebarOpened = !sidebarOpened" />
     <DevInfo :dev="dev" />
@@ -48,6 +50,14 @@ main {
   margin: 0 auto;
   position: relative;
   z-index: 1;
+}
+
+#github-fork-me {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  clip-path: polygon(0 0, 100% 100%, 100% 0);
 }
 
 article {
@@ -104,6 +114,12 @@ article {
   max-width: var(--app-max-width);
   width: 100%;
   padding: 0 32px;
+}
+
+@media (max-width: 800px) {
+  #github-fork-me {
+    display: none;
+  }
 }
 
 /* :deep(.alt-bg) {
