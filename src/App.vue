@@ -4,9 +4,9 @@ import { onBeforeMount, onUnmounted } from 'vue';
 import { Dev } from './Dev';
 import Main from './components/Main.vue';
 
-const particlesLoaded = async (container: any) => {
+/* const particlesLoaded = async (container: any) => {
   console.log("Particles container loaded", container);
-};
+}; */
 
 const dev: Dev = {
   name: 'Dhiego Cassiano Fogaça Barbosa',
@@ -19,7 +19,7 @@ const dev: Dev = {
     linkedin: 'Modscleo4',
     stackoverflow: '147419/modscleo4',
   },
-  brief: 'Bem-vindo ao meu portfólio. Sou um entusiasta por tecnologia desde os 9 anos de idade. Aprendi programação por curiosidade aos 12 anos, sendo minha primeira linguagem o Visual Basic .NET. Desde então decidi seguir a carreira de Computação e continuei aprendendo novas linguagens, como C, Java, PHP, HTML + CSS + JS.',
+  brief: 'Como desenvolvedor Full Stack, tenho uma sólida experiência tanto no front-end quanto no back-end. Utilizo tecnologias como React e Vue no front-end e Node com Express ou com meu próprio framework, PHP com Laravel, Lumen, Zend e Laminas; e Java com Spring Boot no back-end para construir aplicações robustas e escaláveis. Além disso, também conto com experiência em deploy e manutenção de servidores Linux, primariamente com Docker mas também em bare-metal ou em Cloud com AWS ou Azure.',
   resume: {
     formation: [
       {
@@ -41,7 +41,12 @@ const dev: Dev = {
       {
         company_name: 'DSIN Tecnologia da Informação LTDA',
         description: 'Desenvolvedor Jr.',
-        activities: 'Desenvolvimento de rotinas de acordo com o requisito, planejamento ou solicitação conforme os padrões exigidos pela empresa',
+        activities: [
+          'Aplicativos mobile usando o framework Java TotalCross;',
+          'Backend das aplicações usando PHP 7, como o servidor de envio de registros e servidor de configuração inicial;',
+          'Conversão de fotos e vídeos.',
+        ],
+        skills: ['PHP', 'JAVA', 'FFMpeg', 'Zend Framework', 'Laminas', 'TotalCross', 'PostgreSQL', 'Firebird'],
         start_year: 2021,
         end_year: 2023,
       },
@@ -49,56 +54,27 @@ const dev: Dev = {
       {
         company_name: 'DSIN Tecnologia da Informação LTDA',
         description: 'Estagiário',
-        activities: 'Desenvolvimento de rotinas de acordo com o requisito, planejamento ou solicitação conforme os padrões exigidos pela empresa',
+        activities: [
+          'Frontend e backend do SGIT(Sistema para Gerenciamento de Infrações de Trânsito);',
+          'Aplicativo do SGIT em Delphi 7;',
+          'Integrações e pagamentos com PIX de boleto bancário;',
+          'Leitura e parsing de arquivos, como bancários e registros de multas.',
+        ],
+        skills: ['PHP', 'Delphi', 'HTML', 'CSS', 'JS'],
         start_year: 2021,
         end_year: 2021,
       },
-
-      {
-        company_name: 'Universidade Estadual Paulista “Júlio de Mesquita Filho”',
-        description: 'Estagiário',
-        activities: 'Gerenciei redes Linux usando o protocolo LDAP, além de dar manutenção aos computadores.',
-        start_year: 2019,
-        end_year: 2020,
-      },
     ]
   },
-  skills: [
-    {
-      description: 'Linguagens',
-      list: [{ name: 'C', main: false }, { name: 'C++', main: false }, { name: 'C#', main: false }, { name: 'PHP', main: true }, { name: 'Java', main: false }, { name: 'HTML', main: true }, { name: 'CSS', main: true }, { name: 'JS', main: true }, { name: 'TS', main: true }, { name: 'Python', main: false }, { name: 'SQL', main: false }, { name: 'Delphi', main: false },],
-    },
-
-    {
-      description: 'Bancos de Dados',
-      list: [{ name: 'PostgreSQL', main: true }, { name: 'MySQL', main: false }, { name: 'SQLite', main: false }, { name: 'MongoDB', main: false }, { name: 'Firebird', main: false },],
-    },
-
-    {
-      description: 'Sistemas Operacionais',
-      list: [{ name: 'Windows', main: false }, { name: 'Linux', main: true },],
-    },
-
-    {
-      description: 'Ferramentas',
-      list: [{ name: 'Git', main: true }, { name: 'GitHub', main: true }, { name: 'GitLab', main: false }, { name: 'Jira', main: false }, { name: 'VS Code', main: true }, { name: 'Docker', main: false },],
-    },
-
-    {
-      description: 'Frameworks',
-      list: [{ name: 'React', main: false }, { name: 'Vue.js', main: false }, { name: 'Laravel', main: false },]
-    },
-
-    {
-      description: 'Tecnologias',
-      list: [{ name: 'Node.js', main: true }, { name: 'WebSocket', main: false }, { name: 'Fetch API', main: false }, { name: 'CSS Grid', main: false }, { name: 'CSS Flexbox', main: false },],
-    },
-
-    {
-      description: 'Desenvolvimento',
-      list: [{ name: 'TDD', main: false }, { name: 'CI', main: false }, { name: 'CD', main: false }, { name: 'MVC', main: true }, { name: 'SPA', main: false },],
-    },
-  ],
+  skills: {
+    'Linguagens': [{ name: 'C', main: false }, { name: 'C++', main: false }, { name: 'C#', main: false }, { name: 'PHP', main: true }, { name: 'Java', main: false }, { name: 'HTML', main: true }, { name: 'CSS', main: true }, { name: 'JS', main: true }, { name: 'TS', main: true }, { name: 'Python', main: false }, { name: 'SQL', main: false }, { name: 'Delphi', main: false },],
+    'Bancos de Dados': [{ name: 'PostgreSQL', main: true }, { name: 'MySQL', main: false }, { name: 'SQLite', main: false }, { name: 'MongoDB', main: false }, { name: 'Firebird', main: false },],
+    'Sistemas Operacionais': [{ name: 'Windows', main: false }, { name: 'Linux', main: true },],
+    'Ferramentas': [{ name: 'Git', main: true }, { name: 'GitHub', main: true }, { name: 'GitLab', main: false }, { name: 'Jira', main: false }, { name: 'VS Code', main: true }, { name: 'Docker', main: false },],
+    'Frameworks': [{ name: 'React', main: false }, { name: 'Vue.js', main: false }, { name: 'Laravel', main: false }, { name: 'Laminas', main: false }, { name: 'Spring Boot', main: false }, ],
+    'Tecnologias': [{ name: 'Node.js', main: true }, { name: 'WebSocket', main: false }, { name: 'Fetch API', main: false }, { name: 'CSS Grid', main: false }, { name: 'CSS Flexbox', main: false },],
+    'Desenvolvimento': [{ name: 'TDD', main: false }, { name: 'CI', main: false }, { name: 'CD', main: false }, { name: 'MVC', main: true }, { name: 'SPA', main: false },],
+  },
   languages: [
     {
       name: 'English',
@@ -289,7 +265,8 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <vue-particles id="particles-js" :particlesLoaded="particlesLoaded" url="particles.json" />
+  <!-- <vue-particles id="particles-js" :particlesLoaded="particlesLoaded" url="particles.json" /> -->
+  <div id="particles-js"></div>
 
   <Main :dev="dev" />
 </template>

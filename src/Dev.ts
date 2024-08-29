@@ -20,18 +20,18 @@ export type Dev = {
         experience: {
             company_name: string,
             description: string,
-            activities: string,
+            activities: string | string[],
+            skills: string[],
             start_year: number,
             end_year: number | null;
         }[],
     },
     skills: {
-        description: string,
-        list: {
+        [group: string]: {
             name: string,
             main: boolean;
         }[];
-    }[],
+    },
     languages: {
         name: string,
         read: number,

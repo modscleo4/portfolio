@@ -13,12 +13,12 @@ ul {
   list-style: none;
 }
 
-ul:deep(li) {
+ul:deep(> li) {
   padding-bottom: 8px;
   position: relative;
 }
 
-ul:deep(li::after) {
+ul:deep(> li::after) {
   content: ' ';
   position: absolute;
   top: 12px;
@@ -29,7 +29,7 @@ ul:deep(li::after) {
   border-radius: 50px;
 }
 
-ul:deep(li:not(:last-child)::before) {
+ul:deep(> li:not(:last-child)::before) {
   border-left: 2px solid;
   border-color: var(--bg-gradient-end);
   content: ' ';
@@ -39,12 +39,12 @@ ul:deep(li:not(:last-child)::before) {
   margin-left: -17px;
 }
 
-ul:deep(li h1),
-ul:deep(li p) {
+ul:deep(> li h1),
+ul:deep(> li p) {
   margin: 0;
 }
 
-ul:deep(li h1) {
+ul:deep(> li h1) {
   font-size: 1.25rem;
   font-weight: 300;
 }
@@ -53,13 +53,13 @@ ul:deep(li h1) {
 
 } */
 
-ul:deep(li aside) {
+ul:deep(> li aside) {
   margin-top: 4px;
   font-size: 0.9375rem;
 }
 
 @-moz-document url-prefix() {
-  ul:deep(li:not(:last-child)::before) {
+  ul:deep(> li:not(:last-child)::before) {
     margin-left: -17px;
   }
 }

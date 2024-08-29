@@ -17,10 +17,10 @@ const { dev } = defineProps<{ dev: Dev; }>();
       <h2><IconTool :size="24" stroke-width="1.25" /> Habilidades técnicas</h2>
 
       <article>
-        <section v-for="skill_kind in dev.skills">
-          <h1>{{ skill_kind.description }}</h1>
+        <section v-for="(skills, group) in dev.skills">
+          <h1>{{ group }}</h1>
           <div class="skills">
-            <Badge v-for="skill in skill_kind.list" :key="skill.name" :highlight="skill.main">{{ skill.name }}</Badge>
+            <Badge v-for="skill in skills" :key="skill.name" :highlight="skill.main">{{ skill.name }}</Badge>
           </div>
         </section>
       </article>
