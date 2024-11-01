@@ -118,7 +118,15 @@ const dev: Dev = {
     },
 
     {
-      url: 'https://github.com/modscleo4/jukesbox',
+      url: 'https://git.modscleo4.dev.br/modscleo4/lua.git',
+      image_url: 'res/project-17.png',
+      name: 'Lua.js',
+      description: 'Interpretador de Lua 5.4 escrito em TypeScript.',
+      techs: ['TS', 'Node.js', 'Lua', 'Parser'],
+    },
+
+    {
+      url: 'https://git.modscleo4.dev.br/modscleo4/jukesbox.git',
       image_url: 'res/project-14.png',
       name: 'Jukes Box',
       description: 'Um bot de música para o Discord feito em TypeScript, baseado nas falas do streamer Jukes.',
@@ -267,6 +275,7 @@ onUnmounted(() => {
 <template>
   <!-- <vue-particles id="particles-js" :particlesLoaded="particlesLoaded" url="particles.json" /> -->
   <div id="particles-js"></div>
+  <div id="dither"></div>
 
   <Main :dev="dev" />
 </template>
@@ -364,6 +373,17 @@ h1, h2, h3, h4, h5, h6 {
   background-size: cover;
   background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%) no-repeat 50% 50%;
   transition: background-image 100ms ease-in-out;
+  z-index: 0;
   /*filter: blur(1px);*/
+}
+
+#dither {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#ffffff4d 1px, transparent 0);
+  background-size: 36px 36px;
+  background-position: 6px 6px;
+  z-index: 1;
 }
 </style>
