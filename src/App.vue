@@ -394,11 +394,23 @@ h1, h2, h3, h4, h5, h6 {
 
 #dither {
   position: fixed;
+  overflow: hidden;
   width: 100%;
   height: 100%;
+  z-index: 1;
+}
+
+#dither::before {
+  content: ' ';
+  position: absolute;
+  width: 200%;
+  height: 200%;
   background-image: radial-gradient(#ffffff4d 1px, transparent 0);
   background-size: 36px 36px;
   background-position: 6px 6px;
   z-index: 1;
+  top: -50%;
+  left: -50%;
+  transform: rotate(45deg);
 }
 </style>
