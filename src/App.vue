@@ -19,7 +19,7 @@ const dev: Dev = {
     linkedin: 'Modscleo4',
     stackoverflow: '147419/modscleo4',
   },
-  brief: 'Como desenvolvedor Full Stack, tenho uma sólida experiência tanto no front-end quanto no back-end. Utilizo tecnologias como React e Vue no front-end e Node com Express ou com meu próprio framework, PHP com Laravel, Lumen, Zend e Laminas; e Java com Spring Boot no back-end para construir aplicações robustas e escaláveis. Além disso, também conto com experiência em deploy e manutenção de servidores Linux, primariamente com Docker mas também em bare-metal ou em Cloud com AWS ou Azure.',
+  brief: 'Sou um desenvolvedor Full Stack com sólida experiência em front-end e back-end, especializado na criação de aplicações robustas e escaláveis. Tenho habilidades em deploy e manutenção de servidores Linux, utilizando Docker, bare-metal ou soluções em nuvem como AWS e Azure.',
   resume: {
     formation: [
       {
@@ -38,6 +38,21 @@ const dev: Dev = {
     ],
 
     experience: [
+      {
+        company_name: 'Cotefácil Cotações Eletrônicas LTDA',
+        description: 'Desenvolvedor Jr.',
+        activities: [
+          'Crawlers usando Scrapy, Playwright e Selenium;',
+          'Infraestrutura com Terraform;',
+          'Github Actions para deploy;',
+          'API REST usando FastAPI;',
+          'Integrações de alta disponibilidade com filas SQS.',
+        ],
+        skills: ['Python', 'Scrapy', 'Selenium', 'Java', 'REST', 'FastAPI', 'OpenAPI', 'PostgreSQL', 'Docker', 'AWS'],
+        start_year: 2024,
+        end_year: null,
+      },
+
       {
         company_name: 'DSIN Tecnologia da Informação LTDA',
         description: 'Desenvolvedor Jr.',
@@ -67,13 +82,13 @@ const dev: Dev = {
     ]
   },
   skills: {
-    'Linguagens': [{ name: 'C', main: false }, { name: 'C++', main: false }, { name: 'C#', main: false }, { name: 'PHP', main: true }, { name: 'Java', main: false }, { name: 'HTML', main: true }, { name: 'CSS', main: true }, { name: 'JS', main: true }, { name: 'TS', main: true }, { name: 'Python', main: false }, { name: 'SQL', main: false }, { name: 'Delphi', main: false },],
-    'Bancos de Dados': [{ name: 'PostgreSQL', main: true }, { name: 'MySQL', main: false }, { name: 'SQLite', main: false }, { name: 'MongoDB', main: false }, { name: 'Firebird', main: false },],
+    'Linguagens': [{ name: 'C', main: false }, { name: 'C++', main: false }, { name: 'C#', main: false }, { name: 'PHP', main: true }, { name: 'Java', main: false }, { name: 'HTML', main: true }, { name: 'CSS', main: true }, { name: 'JS', main: true }, { name: 'TS', main: true }, { name: 'Python', main: true }, { name: 'SQL', main: false }, { name: 'Delphi', main: false },],
+    'Bancos de Dados': [{ name: 'PostgreSQL', main: true }, { name: 'MySQL', main: false }, { name: 'Oracle', main: false }, { name: 'SQLite', main: false }, { name: 'MongoDB', main: false }, { name: 'Firebird', main: false },],
     'Sistemas Operacionais': [{ name: 'Windows', main: false }, { name: 'Linux', main: true },],
-    'Ferramentas': [{ name: 'Git', main: true }, { name: 'GitHub', main: true }, { name: 'GitLab', main: false }, { name: 'Jira', main: false }, { name: 'VS Code', main: true }, { name: 'Docker', main: false },],
+    'Ferramentas': [{ name: 'Git', main: true }, { name: 'GitHub', main: true }, { name: 'GitLab', main: false }, { name: 'Jira', main: false }, { name: 'Slack', main: false }, { name: 'Docker', main: false },],
     'Frameworks': [{ name: 'React', main: false }, { name: 'Vue.js', main: false }, { name: 'Laravel', main: false }, { name: 'Laminas', main: false }, { name: 'Spring Boot', main: false }, ],
     'Tecnologias': [{ name: 'Node.js', main: true }, { name: 'WebSocket', main: false }, { name: 'Fetch API', main: false }, { name: 'CSS Grid', main: false }, { name: 'CSS Flexbox', main: false },],
-    'Desenvolvimento': [{ name: 'TDD', main: false }, { name: 'CI', main: false }, { name: 'CD', main: false }, { name: 'MVC', main: true }, { name: 'SPA', main: false },],
+    'Desenvolvimento': [{ name: 'TDD', main: false }, { name: 'CI', main: true }, { name: 'CD', main: false }, { name: 'MVC', main: true }, { name: 'SPA', main: false }, { name: 'AWS', main: true },],
   },
   languages: [
     {

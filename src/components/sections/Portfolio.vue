@@ -181,6 +181,7 @@ onUnmounted(() => {
   padding-bottom: 4px;
   margin: 0;
   transform: translate3d(var(--top), 0, 0);
+  will-change: transform;
   position: absolute;
 }
 
