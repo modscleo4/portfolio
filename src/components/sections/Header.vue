@@ -14,8 +14,9 @@ import {
   IconExternalLink,
 } from '@tabler/icons-vue';
 
-const { sidebarOpened } = defineProps<{
+const { sidebarOpened, resume } = defineProps<{
   sidebarOpened: boolean;
+  resume: boolean;
 }>();
 
 const emit = defineEmits(['toggleSidebar']);
@@ -30,7 +31,7 @@ function scrollHandlerHeader() {
 }
 
 function scrollHandlerSection() {
-  ['dev-info', 'about', 'resume', 'portfolio', 'contact'].forEach((section, _i, a) => {
+  ['dev-info', 'about', 'resume', 'portfolio', 'contact'].filter(s => document.querySelector(`section#${s}`)).forEach((section, _i, a) => {
     const target = document.querySelector<HTMLElement>(`section#${section}`)!;
     const targetBounds = target.getBoundingClientRect();
     if (Math.floor(targetBounds.top) <= 64 && targetBounds.bottom >= 0) {
@@ -61,7 +62,7 @@ function scrollHandlerSection() {
     }
   });
 
-  ['formation', 'experience', 'languages', 'skills'].forEach((section, _i, a) => {
+  ['formation', 'experience', 'languages', 'skills'].filter(s => document.querySelector(`section#${s}`)).forEach((section, _i, a) => {
     const target = document.querySelector(`section#${section}`)!;
     const targetBounds = target.getBoundingClientRect();
     if (Math.floor(targetBounds.top) <= 64 && targetBounds.bottom >= 0) {
@@ -99,7 +100,7 @@ onUnmounted(() => {
         <ul class="links">
           <li style="display: none;"><a href="#dev-info">Dev</a></li>
           <li><a href="#about"><IconInfoCircle :size="24" stroke-width="1.25" /> Sobre</a></li>
-          <li>
+          <li v-if="resume">
             <a href="#resume"><IconFileText :size="24" stroke-width="1.25" /> Currículo</a>
             <ul class="sublinks">
               <li><a href="#formation"><IconSchool :size="24" stroke-width="1.25" /> Formação acadêmica</a></li>

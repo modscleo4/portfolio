@@ -18,7 +18,7 @@ const { dev } = defineProps<{
 </script>
 
 <template>
-  <section id="resume">
+  <section v-if="dev.resume" id="resume">
     <div class="section-wrapper">
       <h1><IconFileText :size="36" stroke-width="1.25" /> Currículo</h1>
 

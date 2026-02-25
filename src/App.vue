@@ -19,68 +19,7 @@ const dev: Dev = {
     linkedin: 'Modscleo4',
     stackoverflow: '147419/modscleo4',
   },
-  brief: 'Sou um desenvolvedor Full Stack com sólida experiência em front-end e back-end, especializado na criação de aplicações robustas e escaláveis. Tenho habilidades em deploy e manutenção de servidores Linux, utilizando Docker, bare-metal ou soluções em nuvem como AWS e Azure.',
-  resume: {
-    formation: [
-      {
-        school_name: 'Universidade Estadual Paulista “Júlio de Mesquita Filho”',
-        course: 'Bacharel em Ciência da Computação',
-        start_year: 2020,
-        end_year: null,
-      },
-
-      {
-        school_name: 'Colégio Técnico Industrial “Prof. Isaac Portal Roldán”',
-        course: 'Técnico em Informática',
-        start_year: 2017,
-        end_year: 2019,
-      },
-    ],
-
-    experience: [
-      {
-        company_name: 'Cotefácil Cotações Eletrônicas LTDA',
-        description: 'Desenvolvedor Jr.',
-        activities: [
-          'Crawlers usando Scrapy, Playwright e Selenium;',
-          'Infraestrutura com Terraform;',
-          'Github Actions para deploy;',
-          'API REST usando FastAPI;',
-          'Integrações de alta disponibilidade com filas SQS.',
-        ],
-        skills: ['Python', 'Scrapy', 'Selenium', 'Java', 'REST', 'FastAPI', 'OpenAPI', 'PostgreSQL', 'Docker', 'AWS'],
-        start_year: 2024,
-        end_year: null,
-      },
-
-      {
-        company_name: 'DSIN Tecnologia da Informação LTDA',
-        description: 'Desenvolvedor Jr.',
-        activities: [
-          'Aplicativos mobile usando o framework Java TotalCross;',
-          'Backend das aplicações usando PHP 7, como o servidor de envio de registros e servidor de configuração inicial;',
-          'Conversão de fotos e vídeos.',
-        ],
-        skills: ['PHP', 'JAVA', 'FFMpeg', 'Zend Framework', 'Laminas', 'TotalCross', 'PostgreSQL', 'Firebird'],
-        start_year: 2021,
-        end_year: 2023,
-      },
-
-      {
-        company_name: 'DSIN Tecnologia da Informação LTDA',
-        description: 'Estagiário',
-        activities: [
-          'Frontend e backend do SGIT(Sistema para Gerenciamento de Infrações de Trânsito);',
-          'Aplicativo do SGIT em Delphi 7;',
-          'Integrações e pagamentos com PIX de boleto bancário;',
-          'Leitura e parsing de arquivos, como bancários e registros de multas.',
-        ],
-        skills: ['PHP', 'Delphi', 'HTML', 'CSS', 'JS'],
-        start_year: 2021,
-        end_year: 2021,
-      },
-    ]
-  },
+  brief: 'Desenvolvedor Fullstack com mais de 4 anos de experiência, especializado na criação de arquiteturas escaláveis, automação de processos e infraestrutura em nuvem. Atualmente, atuo como Tech Lead, liderando times ágeis e tomando decisões arquiteturais que equilibram excelência técnica e impacto no negócio.',
   skills: {
     'Linguagens': [{ name: 'C', main: false }, { name: 'C++', main: false }, { name: 'C#', main: false }, { name: 'PHP', main: true }, { name: 'Java', main: false }, { name: 'HTML', main: true }, { name: 'CSS', main: true }, { name: 'JS', main: true }, { name: 'TS', main: true }, { name: 'Python', main: true }, { name: 'SQL', main: false }, { name: 'Delphi', main: false },],
     'Bancos de Dados': [{ name: 'PostgreSQL', main: true }, { name: 'MySQL', main: false }, { name: 'Oracle', main: false }, { name: 'SQLite', main: false }, { name: 'MongoDB', main: false }, { name: 'Firebird', main: false },],
@@ -98,14 +37,6 @@ const dev: Dev = {
       listen: 2,
       speak: 1,
     },
-
-    {
-      name: 'Español',
-      read: 0,
-      write: 0,
-      listen: 0,
-      speak: 0,
-    }
   ],
   portfolio: [
     {

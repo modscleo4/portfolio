@@ -32,7 +32,7 @@ function portfolio() {
     <div v-if="sidebarOpened" class="sidebar-backdrop" @click="sidebarOpened = !sidebarOpened"></div>
     <Github id="github-fork-me" />
 
-    <Header :sidebarOpened="sidebarOpened" @toggleSidebar="sidebarOpened = !sidebarOpened" />
+    <Header :sidebarOpened="sidebarOpened" @toggleSidebar="sidebarOpened = !sidebarOpened" :resume="!!dev.resume" />
     <DevInfo :dev="dev" />
     <article>
       <About :dev="dev" />

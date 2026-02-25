@@ -10,7 +10,7 @@ export type Dev = {
         stackoverflow: string,
     },
     brief: string,
-    resume: {
+    resume?: {
         formation: {
             school_name: string,
             course: string,
